@@ -3,7 +3,7 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q cubyz | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(pacman -Q cubyz-bin | awk '{print $2; exit}') # example command to get version of application here
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"
@@ -19,6 +19,7 @@ mkdir -p ./AppDir/bin
 cp -rv /opt/cubyz/* ./AppDir/bin
 ln -s Cubyz ./AppDir/bin/cubyz
 quick-sharun ./AppDir/bin/*
+echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
 
 # Additional changes can be done in between here
 
