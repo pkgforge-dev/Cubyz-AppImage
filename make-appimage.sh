@@ -17,6 +17,7 @@ export DEPLOY_SDL=1 # SDL is statically linked, we still need to do this to cove
 # Deploy dependencies
 mkdir -p ./AppDir/bin
 cp -rv /opt/cubyz/* ./AppDir/bin
+ln -s Cubyz ./AppDir/bin/cubyz
 quick-sharun ./AppDir/bin/*
 
 # Additional changes can be done in between here
