@@ -27,4 +27,7 @@ quick-sharun --make-appimage
 
 # Test the app for 12 seconds, if the test fails due to the app
 # having issues running in the CI use --simple-test instead
+
+# App needs vulkan but CI runner has no available GPU
+pacman -S --noconfirm vulkan-swrast
 quick-sharun --test ./dist/*.AppImage
